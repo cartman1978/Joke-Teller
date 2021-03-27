@@ -11,7 +11,7 @@ function tellMe(joke) {
     console.log('tell me:', joke);
         VoiceRSS.speech({
             key: '20d262183b1b474381fe2a3b78ce5b84',
-            src: 'Hello Manolo!',
+            src: `${joke}`,
             hl: 'en-us',
             v: 'Linda',
             r: 0, 
