@@ -23,11 +23,17 @@ const VoiceRSS={speech(e){this._validate(e),this._request(e)},_validate(e){if(!e
 
 // Get jokes from jokesApi
 async function getJokes() {
+    let joke = '';
     const apiUrl = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit';
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
-        console.log(data.joke);
+        if (data.setup) {
+            joke = `${data.setup} ... ${data.delivery}`;
+        } else {
+            joke = data.joke
+        }
+        console.log(joke);
     } catch (error) {
         console.log('oh no...!', error);
     }
