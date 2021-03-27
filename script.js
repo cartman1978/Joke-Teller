@@ -6,20 +6,20 @@ const VoiceRSS={speech(e){this._validate(e),this._request(e)},_validate(e){if(!e
 
 
 
-
-// function test() {
-//      VoiceRSS.speech({
-//             key: '20d262183b1b474381fe2a3b78ce5b84',
-//             src: 'Hello Manolo!',
-//             hl: 'en-us',
-//             v: 'Linda',
-//             r: 0, 
-//             c: 'mp3',
-//             f: '44khz_16bit_stereo',
-//             ssml: false
-//         });
-// }
-// test();
+// Passing Joke ti VoiceRSS API
+function tellMe(joke) {
+    console.log('tell me:', joke);
+        VoiceRSS.speech({
+            key: '20d262183b1b474381fe2a3b78ce5b84',
+            src: 'Hello Manolo!',
+            hl: 'en-us',
+            v: 'Linda',
+            r: 0, 
+            c: 'mp3',
+            f: '44khz_16bit_stereo',
+            ssml: false
+        });
+}
 
 // Get jokes from jokesApi
 async function getJokes() {
@@ -33,7 +33,7 @@ async function getJokes() {
         } else {
             joke = data.joke
         }
-        console.log(joke);
+        tellMe(joke);
     } catch (error) {
         console.log('oh no...!', error);
     }
