@@ -7,16 +7,29 @@ const VoiceRSS={speech(e){this._validate(e),this._request(e)},_validate(e){if(!e
 
 
 
-function test() {
-     VoiceRSS.speech({
-            key: '20d262183b1b474381fe2a3b78ce5b84',
-            src: 'Hello, world!',
-            hl: 'en-us',
-            v: 'Linda',
-            r: 0, 
-            c: 'mp3',
-            f: '44khz_16bit_stereo',
-            ssml: false
-        });
+// function test() {
+//      VoiceRSS.speech({
+//             key: '20d262183b1b474381fe2a3b78ce5b84',
+//             src: 'Hello Manolo!',
+//             hl: 'en-us',
+//             v: 'Linda',
+//             r: 0, 
+//             c: 'mp3',
+//             f: '44khz_16bit_stereo',
+//             ssml: false
+//         });
+// }
+// test();
+
+// Get jokes from jokesApi
+async function getJokes() {
+    const apiUrl = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit';
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        console.log(data.joke);
+    } catch (error) {
+        console.log('oh no...!', error);
+    }
 }
-test();
+getJokes();
