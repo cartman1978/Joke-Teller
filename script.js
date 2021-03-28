@@ -38,4 +38,6 @@ async function getJokes() {
         console.log('oh no...!', error);
     }
 }
-getJokes();
+
+// EventListeners
+button.addEventListener('click', getJokes);
